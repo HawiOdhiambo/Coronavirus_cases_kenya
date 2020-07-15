@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import moment from 'moment';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -8,7 +8,7 @@ import CovidInfo from "./CovidInfo";
 
 function App() {
 
-  const [date, setDate]= useState([new Date()]);
+  const [date]= useState([new Date()]);
   const [clickedDate, setClickedDate] = useState("");
   const [dataIndex, setDataIndex] =useState("");
 
@@ -16,6 +16,7 @@ function App() {
     if(index!==0){
         return moment("1899/12/30", "YYYY/MM/DD").add(Number(element[0]), 'days').calendar()
     }
+    else return undefined;
   });
 
   const [tableRows, setTableRows]=useState(6);
@@ -23,7 +24,7 @@ function App() {
   const [buttonStatus, setButtonStatus]=useState(true);
 
   const defaultTableFormat = () => {
-         setTableRows(6)
+          setTableRows(6)
           setButtonMessage("See More")
           setButtonStatus(true);
   }
@@ -88,7 +89,7 @@ function App() {
               
                if(a.currentTarget.className.search("highlight")!== -1){
                 
-                 dates_excel.find((date, index) =>{
+                 dates_excel.foreach((date, index) =>{
                     
                    if(new Date(date).toDateString()===value.toDateString()){
                     
@@ -96,13 +97,13 @@ function App() {
                     const theClickedDate = value.toDateString();
                     const dataIndex = index;
                     
-                    defaultDataFormat(dataIndex, theClickedDate)
+                      defaultDataFormat(dataIndex, theClickedDate);
                    }
                  })
                  
                }
                else{
-                 setClickedDate("")
+                   setClickedDate("");
                }
               }} 
           />
