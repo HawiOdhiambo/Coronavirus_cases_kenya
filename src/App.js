@@ -126,7 +126,7 @@ function DateCard(props){
   }
   return(
     <div>
-      <h1 style={style}> {props.clickedDate}</h1>
+      <h1 style={style}> {props.clickedDate!=="" ? moment(new Date(props.clickedDate), "YYYY/MM/DD").format('MMMM Do YYYY'): false}</h1>
     </div>
   )
 
