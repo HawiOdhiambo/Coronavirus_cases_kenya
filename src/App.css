@@ -1,0 +1,35 @@
+.react-calendar .highlight{
+    border-radius: 50%;
+    background: #A1CB81;
+    color: white;
+}
+.react-calendar .highlight:active, .react-calendar .highlight:focus{
+    background: #CD94BB;
+}
+.react-calendar__navigation{
+    background: #A1CB81;
+    height: 2.5em;
+}
+.react-calendar{
+    font-size: 1.5em;
+   /* margin: 5%;*/
+    width: auto;
+    border:0;
+    font-size: 1.5em;
+}
+.react-calendar button{
+    font-size: 0.65em;
+}
+.react-calendar__navigation  span{
+    font-size: 1.5em;
+}
+.react-calendar .react-calendar__navigation__arrow{
+   font-size: 1em;
+}
+.navbar{
+    height: 4em;
+    background: #CD94BB;
+}
+.space{
+    margin-bottom: 1%;
+}
