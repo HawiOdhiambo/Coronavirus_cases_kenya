@@ -89,7 +89,7 @@ function App() {
               
                if(a.currentTarget.className.search("highlight")!== -1){
                 
-                 dates_excel.foreach((date, index) =>{
+                 dates_excel.forEach((date, index) =>{
                     
                    if(new Date(date).toDateString()===value.toDateString()){
                     

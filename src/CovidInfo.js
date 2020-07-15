@@ -14,7 +14,6 @@ function CovidInfo(props){
   
     useEffect(()=>{
     //populate the table
-        console.log("effect")
         if(props.index!==""){
             const data =[];
             for(let i =1; i<props.tableRows; i++){
