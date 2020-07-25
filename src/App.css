@@ -33,3 +33,11 @@
 .space{
     margin-bottom: 1%;
 }
+.navbar-brand{
+    color:white;
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+.navbar-brand:hover{
+    color:##76baff;
+}

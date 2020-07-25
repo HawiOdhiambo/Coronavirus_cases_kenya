@@ -54,66 +54,68 @@ function App() {
 
   return (
     <div>
-        <nav className="navbar navbar-expand-lg mdc-elevation--z7 mb-3">
-
-    </nav>
-    <div className="container" >
-      
-      <div className="row">
-        <div className="col-sm-12 mb-3"><DateCard clickedDate={clickedDate}/></div>
-        <div className="col-md-5">
-          <Calendar 
-            className="mdc-elevation--z2"
-            value={date}
-            tileClassName={({ date, view }) => {
-                           
-              if(view==="month"){
-       
-                dates_excel.splice(0,1, "undefined"); //removes this added data point.
-                if(dates_excel.find(dataDate => new Date(dataDate).toDateString()===date.toDateString())){
-                                             
-                    return  'highlight'
-                }
-              }
-              else{
-                dates_excel.splice(0,1,"03/01/2020"); //makes sure the month is highlighted in year view
-               
-                if(dates_excel.find(dataDate => new Date(dataDate).toDateString()===date.toDateString())){
-                                
-                    return  'highlight'
-                }
-               }
-                
-             }}
-             onClickDay ={(value, a) =>{
-              
-               if(a.currentTarget.className.search("highlight")!== -1){
-                
-                 dates_excel.forEach((date, index) =>{
-                    
-                   if(new Date(date).toDateString()===value.toDateString()){
-                    
-                    
-                    const theClickedDate = value.toDateString();
-                    const dataIndex = index;
-                    
-                      defaultDataFormat(dataIndex, theClickedDate);
-                   }
-                 })
-                 
-               }
-               else{
-                   setClickedDate("");
-               }
-              }} 
-          />
+      <nav className="navbar navbar-expand-lg mdc-elevation--z7 mb-3">
+        <div className="container">
+          <a className="navbar-brand" href="#">COVID-19 KENYA</a>
         </div>
-        <div className="col-sm-7 mdc-elevation--z2 p-5">
-            <CovidInfo index={dataIndex} tableRows={tableRows} modifyTableRows={modifyTableRows} buttonMessage={buttonMessage}/>
-        </div>
-      </div>
+      </nav>
+      <div className="container" >
         
-    </div>
+        <div className="row">
+          <div className="col-sm-12 mb-3"><DateCard clickedDate={clickedDate}/></div>
+          <div className="col-md-5">
+            <Calendar 
+              //className="mdc-elevation--z2"
+              value={date}
+              tileClassName={({ date, view }) => {
+                            
+                if(view==="month"){
+        
+                  dates_excel.splice(0,1, "undefined"); //removes this added data point.
+                  if(dates_excel.find(dataDate => new Date(dataDate).toDateString()===date.toDateString())){
+                                              
+                      return  'highlight'
+                  }
+                }
+                else{
+                  dates_excel.splice(0,1,"03/01/2020"); //makes sure the month is highlighted in year view
+                
+                  if(dates_excel.find(dataDate => new Date(dataDate).toDateString()===date.toDateString())){
+                                  
+                      return  'highlight'
+                  }
+                }
+                  
+              }}
+              onClickDay ={(value, a) =>{
+                
+                if(a.currentTarget.className.search("highlight")!== -1){
+                  
+                  dates_excel.forEach((date, index) =>{
+                      
+                    if(new Date(date).toDateString()===value.toDateString()){
+                      
+                      
+                      const theClickedDate = value.toDateString();
+                      const dataIndex = index;
+                      
+                        defaultDataFormat(dataIndex, theClickedDate);
+                    }
+                  })
+                  
+                }
+                else{
+                    setClickedDate("");
+                }
+                }} 
+            />
+          </div>
+          <div className="col-sm-7 p-5">
+              <CovidInfo index={dataIndex} tableRows={tableRows} modifyTableRows={modifyTableRows} buttonMessage={buttonMessage}/>
+          </div>
+        </div>
+          
+      </div>
     </div>
   
   );
