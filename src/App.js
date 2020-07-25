@@ -5,6 +5,8 @@ import 'react-calendar/dist/Calendar.css';
 import './App.css';
 import {excel_data} from "./data/excel_data.js";
 import CovidInfo from "./CovidInfo"; 
+import NavigationBar from "./NavigationBar"; 
+
 
 function App() {
 
@@ -54,11 +56,7 @@ function App() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg mdc-elevation--z7 mb-3">
-        <div className="container">
-          <a className="navbar-brand" href="/">COVID-19 KENYA</a>
-        </div>
-      </nav>
+      <NavigationBar/>
       <div className="container" >
         
         <div className="row">
